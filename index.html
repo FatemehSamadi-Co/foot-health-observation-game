@@ -1,0 +1,91 @@
+عالی! در ادامه یک نسخه‌ی ابتدایی و سرگرم‌کننده از فایل index.html رو برات آماده کردم. این نسخه شامل تصویر پا نیست، ولی از شکل ساده‌ی یک پا با دکمه‌ها برای تعامل استفاده می‌کنه. همه‌چیز در یک فایل HTML جا گرفته:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FootCheck Game</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .foot {
+      margin: 30px auto;
+      width: 200px;
+      height: 300px;
+      background: #ffe0bd;
+      border-radius: 100px 100px 60px 60px;
+      position: relative;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .toe {
+      width: 40px;
+      height: 40px;
+      background: #fdd5a2;
+      border-radius: 50%;
+      position: absolute;
+      cursor: pointer;
+      border: 2px solid #ccc;
+    }
+
+    .toe:hover {
+      background: #ffd49e;
+    }
+
+    #big { top: -20px; left: 80px; }
+    #second { top: -15px; left: 130px; }
+    #middle { top: -10px; left: 160px; }
+    #ring { top: -5px; left: 30px; }
+    #pinky { top: -2px; left: 0px; }
+
+    #message {
+      margin-top: 30px;
+      font-size: 1.2em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>FootCheck</h1>
+  <p>Tap a toe to learn something cool!</p>
+
+  <div class="foot">
+    <div class="toe" id="big"></div>
+    <div class="toe" id="second"></div>
+    <div class="toe" id="middle"></div>
+    <div class="toe" id="ring"></div>
+    <div class="toe" id="pinky"></div>
+  </div>
+
+  <div id="message">Your foot holds secrets…</div>
+
+  <script>
+    const tips = {
+      big: "Your big toe can reveal signs of gout or arthritis.",
+      second: "A longer second toe? It's called Morton's Toe — totally normal!",
+      middle: "Pain here could mean poor shoe support.",
+      ring: "Numbness? Might be nerve compression.",
+      pinky: "Swelling here could signal circulation issues."
+    };
+
+    for (let id in tips) {
+      document.getElementById(id).addEventListener('click', () => {
+        document.getElementById('message').textContent = tips[id];
+      });
+    }
+  </script>
+
+</body>
+</html>
+
